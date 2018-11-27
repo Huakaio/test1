@@ -40,6 +40,8 @@ function highlightPage() {
             linkurl = links[i].getAttribute("href");
             if (window.location.href.indexOf(linkurl) != -1) {
                 links[i].className = "here";
+                var linktext=links[i].lastChild.nodeValue.toLowerCase();
+                document.body.setAttribute("id",linktext);
             }
         }
     }
