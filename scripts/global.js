@@ -85,6 +85,20 @@ function moveElement(elementID,final_x,final_y,interval) {
     var repeat="moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
     elem.movement=setTimeout(repeat,interval);
 }
+function Slideshow() {
+    if(!document.getElementById) return false;
+    if(!document.getElementsByTagName) return false;
+    if(!document.getElementById("intro")) return false;
+    var intro=document.getElementById("intro");
+    var slideshow=document.createElement("div");
+    slideshow.setAttribute("id","slideshow");
+    var preview=document.createElement("img");
+    preview.setAttribute("id","preview");
+    preview.setAttribute("src","images/slideshow.gif");
+    preview.setAttribute("alt","a glimpse of what awaits you");
+    slideshow.appendChild(preview);
+    insertAfter(slideshow,intro);
+}
 
 
 
