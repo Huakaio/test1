@@ -80,3 +80,6 @@ tr.highlight td{
     color: #223;
     background-color: #cba;
 }
+::-webkit-input-placeholder{
+    color: grey;
+}
