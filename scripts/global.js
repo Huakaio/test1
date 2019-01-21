@@ -347,8 +347,42 @@ function validateForm(whichForm){
     }
     return true;
 }
-
-
+function getHTTPObject() {
+    if (typeof XMLHttpRequest == "undefined")
+        XMLHttpRequest = function () {
+            try {
+                return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+            }
+            catch (e) {
+            }
+            try {
+                return new ActiviXObject("Msxml2.XMLHTTP.3.0");
+            }
+            catch (e) {
+            }
+            try {
+                return new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e) {
+            }
+            return false;
+        }
+        return new XMLHttpRequest();
+}
+function displayAjaxLoading(element) {
+    while (element.hasChildNodes()){
+        element.removeChild(element.lastChild);
+        var content=document.createElement("img");
+        content.setAttribute("src","images/loading.gif");
+        content.setAttribute("alt","Loading...")
+        element.appendChild(content);
+    }
+}
+function submitFormWithAjax(whichForm,thetarget) {
+    var request=getHTTPObject();
+    if(!request){return false;}
+    displayAjaxLoading(thetarget);
+}
 
 
 
